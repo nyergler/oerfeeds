@@ -17,7 +17,6 @@ class FeedsController < ApplicationController
         else
             @feeds = Feed.find(:all, :limit => 100)
         end
-        debugger
         render_index
     end
 
@@ -60,17 +59,17 @@ class FeedsController < ApplicationController
     def create
         @page_title = 'Added Feed'
         uri = params[:feed][:uri]
-        @feed = Feed.find_by_uri(uri)
+        #@feed = Feed.find_by_uri(uri)
 
-        if @feed.nil?
+        #if @feed.nil?
             @feed = Feed.new
             @feed.title = params[:feed][:title]
             @feed.uri = uri
             success = @feed.save
-        else
-            success = true
-        end
-
+        # else
+        #             success = true
+        #         end
+        
         respond_to do |format|
             if success
                 flash[:notice] = 'Feed was successfully added.'

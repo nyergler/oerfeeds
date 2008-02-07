@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
     include OpenAccount::OpenAccountModel
     
-    has_many :feeds_users
-    has_many :feeds, :through => :feeds_users
+    has_many :feeds
     
     def is_in_role?(roles)
         
