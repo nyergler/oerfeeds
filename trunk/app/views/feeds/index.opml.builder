@@ -1,38 +1,29 @@
+headers["Content-Type"] = "text/x-opml"
 xml.instruct!
 
-xml.opml("version" => "1.0") do
+xml.opml("version" => "2.0") do
 	xml.head do
+		 xml.title "oerfeeds.info"
+		 xml.dateModified ""
+		 xml.ownerName "oerfeeds.info"
+		 xml.ownerId "http://oerfeeds.info"
+		 xml.ownerEmail "webmaster@oerfeeds.info"
+		 xml.docs "http://www.opml.org/spec2"
 	end
+
 	xml.body do
-		xml.outline 
-	end
-end
+		 @feeds.each do |feed|
+		 xml.outline( :text => feed.title,
+		 	      :type => "include",
+			      :url => feed.url
+			      ) if feed.type == "opml"
 
-
-headers["Content-Type"] = "application/rss+xml"
-xml.instruct!
-	
-xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
-    xml.channel do
-
-    xml.title       "Blog posts for " + @event.title
-    xml.link        url_for(request.env["REQUEST_URI"])
-    xml.pubDate     CGI.rfc1123_date @entries.first.updated_at if @entries.any?
-    xml.description "Blog posts for " + @event.title
-	xml.generator '51weeks'
-
-    @entries.each do |entry|
-      xml.item do
-        xml.title       entry.title
-        xml.link        entry.permalink
-        xml.description "type" => "html" do
-           xml.text! entry.content || entry.description
-        end
-        xml.pubDate     CGI.rfc1123_date entry.created_at
-        xml.guid        entry.permalink
-        xml.author      "#{entry.author} (#{entry.author})"
-      end
-    end
-
-  end
+		 xml.outline( :text => feed.title,
+		 	      :type => feed.type,
+			      :xmlUrl => feed.url
+			      ) unless feed.type == "opml"
+			      
+			      
+		 end
+	end	 
 end
