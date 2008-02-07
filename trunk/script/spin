@@ -1,2 +1,1 @@
-#!/usr/bin/env bash
 cd /var/www/oerfeeds/current;mongrel_rails cluster::restart

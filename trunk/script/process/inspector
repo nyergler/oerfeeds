@@ -1,3 +1,2 @@
-#!/usr/bin/env ruby
-require File.dirname(__FILE__) + '/../../config/boot'
-require 'commands/process/inspector'
+#!/usr/bin/env bash
+cd /var/www/oerfeeds/current;mongrel_rails cluster::status
