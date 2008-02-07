@@ -1,0 +1,48 @@
+<div id="login-main">
+	<fieldset>
+	  <legend>Sign In</legend>
+	  <table summary="layout for login form">
+	    <tr>
+	      <td><label for="login">Login</label></td>
+	      <td><%= text_field_tag 'login' %></td>
+      </tr>
+      <tr>
+        <td><label for="password">Password</label></td>
+	      <td><%= password_field_tag 'password' %></td>
+      </tr>
+      <tr>
+        <td><label for="remember_me">Remember me</label></td>
+	      <td><%= check_box_tag 'remember_me' %></td>
+			</tr>
+			<tr>
+			  <td></td>
+			  <td><%= submit_tag 'Sign in', :disable_with => "Signing in&hellip;" %></td>
+			</tr>
+			<tr>
+			  <td colspan="2" style="text-align:right;"><%= link_to 'Sign Up', signup_path, {:title => "Sign up for a new 51Weeks account."} %></td>
+			</tr>
+		</table>
+  </fieldset>
+
+  <p id="login-or">...or...</p>
+	
+	<fieldset>
+	  <legend>Sign in with your OpenID</legend>
+	  <table summary="layout for openid login form">
+	    <tr>
+	      <td><label for="openid_url">OpenID: </label></td>
+        <td><%= text_field_tag "openid_url" %></td>
+      </tr>
+      <tr>
+        <td colspan="2">Please enter the entire url for your OpenID. (Example: johndoe.myopenid.com)</td>
+  		</tr>
+			<tr>
+			  <td></td>
+    	  <td><%= submit_tag 'Sign in', :disable_with => "Signing in&hellip;" %></td>
+			</tr>
+			<tr>
+    	  <td colspan="2" style="text-align:right;"><a href="https://www.myopenid.com/affiliate_signup?affiliate_id=1204" title="Sign up for an OpenID account on myopenid.com">Get an OpenID</a></td>
+			</tr>
+		</table>
+	</fieldset>
+ </div>

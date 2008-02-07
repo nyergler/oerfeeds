@@ -1,20 +1,12 @@
-<div id="feed">
-	<fieldset>
-	  <legend>Data Feed</legend>
-	  <table summary="layout for data feed form">
-	    <tr>
-	      <td><label for="title">Title</label></td>
-	      <td><%= text_field_tag 'title' %></td>
-      </tr>
-      <tr>
-        <td><label for="uri">Feed Url</label></td>
-	      <td><%= text_field_tag 'uri' %></td>
-      </tr>
-			<tr>
-			  <td></td>
-			  <td><%= submit_tag 'Submit', :disable_with => "Adding Feed" %></td>
-			</tr>
-		</table>
-  </fieldset>
+<%= error_messages_for :feed %>
+<table summary="layout for data feed form">
+   <tr>
+     <td><label for="title">Title</label></td>
+     <td><%= f.text_field :title %></td>
+    </tr>
+    <tr>
+      <td><label for="uri">Feed Url</label></td>
+     <td><%= f.text_field :uri %></td>
+    </tr>
+</table>
 
- </div>

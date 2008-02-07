@@ -1,7 +1,10 @@
-<div id="services">
-  <%= error_messages_for :feed %>
-	<% form_tag sessions_path do -%>
-	  <%= render(:partial => "feeds/form")%>
-	<% end -%>
-</div>
-
+<h1>Add feed</h1>
+<fieldset>
+  <legend>Data Feed</legend>
+	<% form_for(@feed, :url => user_feeds_path(@user)) do |f| %>
+	  <%= render(:partial => "form", :object => @feed, :locals => {:f => f}) %>
+	  <p style="text-align:center;clear:both;">
+	    <%= f.submit "Add" %>
+	  </p>
+	<% end %>
+</fieldset>

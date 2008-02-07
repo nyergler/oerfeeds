@@ -2,9 +2,10 @@ class FeedsController < ApplicationController
     
     require "cgi"
   
-    before_filter :login_required, :except => [:show]
+    before_filter :login_required, :except => [:index, :search, :show]
     before_filter :authorization_required, :only => [:destroy, :edit, :update]
-   
+    before_filter :setup_user, :except => [:index, :search, :show]
+    
     layout "default"
 
     # GET /feeds
@@ -59,11 +60,12 @@ class FeedsController < ApplicationController
         @feed.uri = params[:uri]
         if @feed.save
             flash[:notice] = 'Feed was successfully added.'
+            @user.feeds << @feed
         end
         
         respond_to do |format|
-            format.html { render :action => "new_too" }
-            format.xml  { render :xml => @feed.added_feeds }
+            format.html
+            format.xml  { render :xml => @feed }
         end
     end
 
@@ -96,9 +98,6 @@ class FeedsController < ApplicationController
         end
     end
 
-    def upload_opml_file
-
-    end
 
     protected
   
@@ -113,4 +112,8 @@ class FeedsController < ApplicationController
 
     end
 
+    def setup_user
+        @user = User.find(params[:user_id]) || current_user
+    end
+    
 end
