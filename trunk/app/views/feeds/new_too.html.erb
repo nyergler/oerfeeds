@@ -1,0 +1,74 @@
+<%= error_messages_for :aggregation %>
+<%= error_messages_for :feed %>
+
+<div id="opml-results">
+<% if  @feed.added_feeds.length > 0 -%>
+  <h2>The following feeds were added:</h2>
+  <%= @feed.added_feeds.collect {|feed| '<li>' + feed.title + '</li>'}.join(" ") %>
+<% end -%> 
+	
+<% if @feed.problem_feeds.length > 0 -%>
+  <h2>The following feeds were not added:</h2>
+  <%= @feed.problem_feeds.collect {|feed| '<li>' + feed.title + '</li>'}.join(" ") %>
+<% end -%> 
+
+<% if @feed.already_feeds.length > 0 -%>
+  <h2>You are already subscribed to:</h2>
+  <%= @feed.already_feeds.collect {|feed| '<li>' + feed.title + '</li>'}.join(" ") %>
+<% end -%> 
+</div>
+
+<p class="nav"><%= link_to('<< Back to Service Selection', new_aggregation_feed_path(@aggregation), {:title => "Cancel Add.", :target => "_self"}) %></p>
+
+  <fieldset>  
+	<% if Aggregator::ServiceConstants::OPML == @service.id -%>
+	  <%= render(:partial => 'services/opml', :object => @service, :locals => {:service => @service}) %>
+	<% else %>
+      <% form_for(:feed, :url => aggregation_feeds_path(@aggregation)) do |f| -%>
+		<% if Aggregator::ServiceConstants::RSS == @service.id -%>
+			<%= render(:partial => 'services/rss_atom', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::TAG == @service.id -%>
+			<%= render(:partial => 'services/tag', :object => @service, :locals => {:service => @service, :form => f}) %>	
+		<% elsif Aggregator::ServiceConstants::DELICIOUS == @service.id -%>
+			<%= render(:partial => 'services/delicious', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::DIGG == @service.id -%>
+			<%= render(:partial => 'services/digg', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::X43PLACES == @service.id -%>
+			<%= render(:partial => 'services/x43places', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::ALLCONSUMING == @service.id -%>
+			<%= render(:partial => 'services/allconsuming', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::CLIPMARKS == @service.id -%>
+			<%= render(:partial => 'services/clipmarks', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::FLICKR == @service.id -%>
+			<%= render(:partial => 'services/flickr', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::LASTFM == @service.id -%>
+			<%= render(:partial => 'services/lastfm', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::LIVEJOURNAL == @service.id -%>
+			<%= render(:partial => 'services/livejournal', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::SIMPY == @service.id -%>
+			<%= render(:partial => 'services/simpy', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::WORDPRESS == @service.id -%>
+			<%= render(:partial => 'services/wordpress', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::XANGA == @service.id -%>
+			<%= render(:partial => 'services/xanga', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::X43THINGS == @service.id -%>
+			<%= render(:partial => 'services/x43things', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::YOUTUBE == @service.id -%>
+			<%= render(:partial => 'services/youtube', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::CITEULIKE == @service.id -%>
+			<%= render(:partial => 'services/citeulike', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::GOOGLENEWS == @service.id -%>
+			<%= render(:partial => 'services/googlenews', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::TWITTER == @service.id -%>
+			<%= render(:partial => 'services/twitter', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::ODEO == @service.id -%>
+			<%= render(:partial => 'services/odeo', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::TECHNORATI == @service.id -%>
+			<%= render(:partial => 'services/technorati', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% elsif Aggregator::ServiceConstants::GOOGLEBLOG == @service.id -%>
+			<%= render(:partial => 'services/googleblogs', :object => @service, :locals => {:service => @service, :form => f}) %>
+		<% end -%>		
+        <input type="hidden" name="service_id" value="<%= @service.id %>"/> 
+      <% end -%>
+    <% end -%>
+  </fieldset> 

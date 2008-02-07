@@ -1,7 +1,7 @@
 class Feed < ActiveRecord::Base
     include Aggregator::FeedModel
 
-    belongs_to :user, :through => :feeds_users
+    belongs_to :user
     
     def after_initialize
         self.problem_feeds = []
