@@ -55,18 +55,29 @@ class FeedsController < ApplicationController
     def create
         @page_title = 'Added Feed'
         
-        @feed = Feed.new
-        @feed.title = params[:title]
-        @feed.uri = params[:uri]
-        if @feed.save
-            flash[:notice] = 'Feed was successfully added.'
-            @user.feeds << @feed
+        @feed = Feed.find_by_uri(params[:uri])
+        
+        if @feed.nil?
+            @feed = Feed.new
+            @feed.title = params[:feed][:title]
+            @feed.uri = params[:feed][:uri]
+            success = @feed.save
+        else
+            success = true
         end
         
         respond_to do |format|
-            format.html
-            format.xml  { render :xml => @feed }
+            if success
+                flash[:notice] = 'Feed was successfully added.'
+                @user.feeds << @feed
+                format.html { redirect_to( user_feeds(@user) ) }
+                format.xml  { render :xml => @feed }
+            else
+                format.html { render :action => "new" }
+                format.xml  { render :xml => @feed.errors }
+            end        
         end
+        
     end
 
     # PUT /feeds/1
@@ -77,7 +88,7 @@ class FeedsController < ApplicationController
         respond_to do |format|
             if @feed.update_attributes(params[:feed])
                 flash[:notice] = 'Feed was successfully updated.'
-                format.html { redirect_to(@feed) }
+                format.html { redirect_to( user_feeds(@user) ) }
                 format.xml  { head :ok }
             else
                 format.html { render :action => "edit" }
