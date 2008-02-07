@@ -1,6 +1,6 @@
 --- 
 user: mongrel
-cwd: /var/www/oerfeeds
+cwd: /var/www/oerfeeds/current
 log_file: log/mongrel.log
 port: "8200"
 environment: production
