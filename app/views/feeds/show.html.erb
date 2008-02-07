@@ -1,0 +1,7 @@
+<% content_for :page_stylesheets do %>
+  <%=stylesheet_link_tag('entry')%>
+<% end %>
+
+<div id="hfeed">
+<%= render(:partial => "entries/entry" , :collection => @entries, :locals => {:aggregation => @aggregation}) %>
+</div>

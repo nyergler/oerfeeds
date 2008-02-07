@@ -2,10 +2,9 @@ ActionController::Routing::Routes.draw do |map|
 
     map.home '', :controller => 'default', :action => 'index'
 
-    map.resources :users, :has_many => :feeds do |user|
-        user.resources :feeds
-    end
+    map.resources :users, :has_many => :feeds
 
+    map.resource :feeds
     map.resource :sessions
     map.open_id_complete 'session', :controller => 'sessions', :action => 'create', :requirements => { :method => :get }
     

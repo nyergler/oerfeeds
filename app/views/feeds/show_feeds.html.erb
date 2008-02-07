@@ -1,0 +1,30 @@
+<h1>Select feeds <%= 'for: ' + @aggregation.title %></h1>
+<p><%= link_to 'Back to ' + @aggregation.title, @aggregation %></p>
+<div id="add-feed-tags" class="left">
+  <% Tag.cloud(@tags, %w(100% 120% 140% 160%)) do |id, tag, font_size| %>
+    <%= link_to h(tag), {:controller => 'feeds', :action => 'filter', :aggregation_id => @aggregation, :tag => tag}, { :style => 'font-size:' + font_size} %>
+  <% end %>
+</div>
+<div class="right">
+    <% form_tag(aggregation_search_feeds_path(@aggregation)) do %>
+ 	  <%= text_field_tag(:search_terms, params[:search_terms], :size => 40) %>
+	  <%= submit_tag 'Search' %>
+    <% end %>
+
+  <hr />
+  <table> 
+  <% for feed in @feeds %>
+    <tr>
+      <td>
+    	<% form_tag({:controller => 'aggregations', :action => 'associate_feed', :id => @aggregation.id, :feed_id => feed.id}) do %>
+	 	  <%= hidden_field_tag(:search_terms, params[:search_terms]) %>
+		  <%= submit_tag 'Add to ' + @aggregation.title %>
+	    <% end %>
+      </td> 
+	  <td><%= link_to h(feed.title), {:controller => 'feeds', :action => 'show', :aggregation_id => @aggregation, :id => feed.id} %></td>
+	  <td><%= link_to '(Data)', feed.uri %></td>
+	  <td><%= link_to '(Site)', feed.display_uri unless feed.display_uri.empty? %></td> 
+    </tr>
+  <% end %>
+  </table>
+</div>

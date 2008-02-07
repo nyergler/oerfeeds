@@ -19,8 +19,7 @@ class UsersController < ApplicationController
     end
     
     def welcome
-        @events = Event.find(:all, :order => 'begin_date DESC')
-        respond_to do |format|
+       respond_to do |format|
             format.html
             format.xml  { render :xml => current_user, :status => :created, :location => current_user }
         end
@@ -30,9 +29,7 @@ class UsersController < ApplicationController
     # GET /users/1
     # GET /users/1.xml
     def show
-        @user = User.find(params[:id], :include => ['comments', 'time_entries'])
-        @comment = Comment.new
-        @time_entry = TimeEntry.new
+        @user = User.find(params[:id])
         respond_to do |format|
             format.html # show.html.erb
             format.xml  { render :xml => @user }

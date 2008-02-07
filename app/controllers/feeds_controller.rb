@@ -10,12 +10,11 @@ class FeedsController < ApplicationController
     # GET /feeds
     # GET /feeds.xml
     def index
-        if !@aggregation.nil?
-            @page_title = @aggregation.title
-            @feeds = @aggregation.feeds
-        else
-            @page_title = 'Feeds'
-            @feeds = Feed.find(:all, :limit => 100) if @feeds.nil?
+        @page_title = 'Feeds'
+        @feeds = Feed.find(:all, :limit => 100) if @feeds.nil?
+        respond_to do |format|
+            format.html
+            format.xml  { render :xml => @feeds }
         end
     end
 
@@ -39,7 +38,6 @@ class FeedsController < ApplicationController
     def show
         
         @feed = Feed.find(params[:id])
-        @entries = Entry.get_entries_for_feed(@feed.id, {:limit => 50})
         @page_title = @feed.title
         respond_to do |format|
             format.html # show.html.erb
@@ -51,13 +49,7 @@ class FeedsController < ApplicationController
     # GET /feeds/new.xml
     def new
         @feed = Feed.new
-        @aggregation = Aggregation.find(params[:aggregation_id]) 
-        if @aggregation.nil?
-        Aggregations.new    
-        end
-        
-        @available_services = Service.available_services
-        @page_title = 'Add to ' + @aggregation.title
+        @page_title = 'Add Feed'
         
         respond_to do |format|
             format.html
