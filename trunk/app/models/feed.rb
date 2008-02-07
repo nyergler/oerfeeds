@@ -2,7 +2,9 @@ class Feed < ActiveRecord::Base
     include Aggregator::FeedModel
 
     belongs_to :user
-    
+    validates_presence_of   :title
+    validates_presence_of   :uri
+    		
     def after_initialize
         self.problem_feeds = []
         self.added_feeds = []
