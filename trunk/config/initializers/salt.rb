@@ -1,0 +1,1 @@
+OpenAccount::OpenAccountConfiguration.set_config :salt, "salt goes here"

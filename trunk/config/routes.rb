@@ -6,8 +6,8 @@ ActionController::Routing::Routes.draw do |map|
         user.resources :feeds
     end
 
-    map.resource :session
-    map.open_id_complete 'session', :controller => 'session', :action => 'create', :requirements => { :method => :get }
+    map.resource :sessions
+    map.open_id_complete 'session', :controller => 'sessions', :action => 'create', :requirements => { :method => :get }
     
     # The priority is based upon order of creation: first created -> highest priority.
 
@@ -43,10 +43,10 @@ ActionController::Routing::Routes.draw do |map|
     map.settings 'settings',      :controller => 'users',   :action => 'edit'
     map.activate 'activate/:key', :controller => 'users',   :action => 'activate'
     map.welcome  'welcome',       :controller => 'users',   :action => 'welcome'
-    map.login    'signin',        :controller => 'session', :action => 'new'
-    map.login    'login',         :controller => 'session', :action => 'new'
-    map.logout   'logout',        :controller => 'session', :action => 'destroy'
-    map.logout   'signout',       :controller => 'session', :action => 'destroy'
+    map.login    'signin',        :controller => 'sessions', :action => 'new'
+    map.login    'login',         :controller => 'sessions', :action => 'new'
+    map.logout   'logout',        :controller => 'sessions', :action => 'destroy'
+    map.logout   'signout',       :controller => 'sessions', :action => 'destroy'
 
 
     # Install the default routes as the lowest priority.
