@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     # GET /entries
     # GET /entries.xml
     def index
-        @users = User.find(:all)
+        @users = User.find(:all, :limit => 100)
 
         respond_to do |format|
             format.html # index.html.erb
@@ -22,14 +22,14 @@ class UsersController < ApplicationController
        respond_to do |format|
             format.html
             format.xml  { render :xml => current_user, :status => :created, :location => current_user }
-        end
-        
+        end        
     end
     
     # GET /users/1
     # GET /users/1.xml
     def show
         @user = User.find(params[:id])
+        @feeds = @user.feeds
         respond_to do |format|
             format.html # show.html.erb
             format.xml  { render :xml => @user }

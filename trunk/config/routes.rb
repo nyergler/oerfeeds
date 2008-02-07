@@ -2,11 +2,9 @@ ActionController::Routing::Routes.draw do |map|
 
     map.root :controller => 'default', :action => 'index'
 
-    map.resources :users, :has_many => :feeds
-    map.connect 'feeds.:format', :controller => 'feeds', :action => 'index'
-    
     map.resource :feeds
     map.resource :sessions
+    map.resources :users, :has_many => :feeds
     
     map.open_id_complete 'session', :controller => 'sessions', :action => 'create', :requirements => { :method => :get }
 

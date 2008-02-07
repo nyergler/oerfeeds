@@ -1,0 +1,9 @@
+<table id="manager">
+	<% for feed in @feeds -%>
+	  <tr>
+	    <td><%= link_to h(feed.title), feed.uri, {:target => "_self"} %></td>
+	    <td><%= link_to h(feed.uri), feed.uri, {:target => "_self"} %></td>	 
+		  <td><%= link_to 'Remove', user_feed_path(@user, feed), :confirm => 'Are you sure you want to remove this feed?', :method => :delete %></td>
+	  </tr>
+	<% end -%>
+</table>
