@@ -105,6 +105,7 @@ class FeedsController < ApplicationController
         respond_to do |format|
             format.html { render(:template => 'feeds/index') }
             format.xml  { render :xml => @feeds }
+            format.opml  { render(:template => 'feeds/index.opml.builder', :xml => @feeds) }
         end
     end
 
