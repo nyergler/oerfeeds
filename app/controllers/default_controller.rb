@@ -1,4 +1,4 @@
-class FeedsController < ApplicationController
+class DefaultController < ApplicationController
 
     def index
         respond_to do |format|
