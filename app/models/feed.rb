@@ -1,7 +1,7 @@
 class Feed < ActiveRecord::Base
     has_one :feed_type
     
-    belongs_to :user
+    has_many :users, :through => :feeds_users
     validates_presence_of   :title
     validates_presence_of   :uri
     		
