@@ -13,7 +13,7 @@ fieldset input{float:left;}
 .form_part{float:left;clear:both;}
 .form-buttons{text-align:center;clear:both;padding:10px;width:100%;}
 
-#header{height:65px;background-image: url(/images/squareback.png);background-repeat:repeat-x;text-align:right;width:100%;}
+#header{height:65px;text-align:right;width:100%;}
 #topbar{background-color: #f7eed4;}
 #topbar{border-bottom:solid 1px #dba855;border-top:solid 1px #dba855;}
 #logo, #topbar{float:left;clear:both;width:100%;margin-bottom:30px;padding:0px;text-align:center;}

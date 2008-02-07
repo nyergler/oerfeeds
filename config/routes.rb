@@ -1,11 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
 
-    map.home '', :controller => 'default', :action => 'index'
+    map.root :controller => 'default', :action => 'index'
 
     map.resources :users, :has_many => :feeds
-
     map.resource :feeds
     map.resource :sessions
+    
     map.open_id_complete 'session', :controller => 'sessions', :action => 'create', :requirements => { :method => :get }
     
     # The priority is based upon order of creation: first created -> highest priority.

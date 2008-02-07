@@ -1,12 +1,10 @@
 <h1>Editing feed</h1>
-
-<%= error_messages_for :feed %>
-
-<% form_for(@feed) do |f| %>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @feed %> |
-<%= link_to 'Back', feeds_path %>
+<fieldset>
+  <legend>Data Feed</legend>
+	<% form_for(@feed, :url => user_feed_path(@user, @feed)) do |f| %>
+	  <%= render(:partial => "form", :object => @feed, :locals => {:f => f}) %>
+	  <p style="text-align:center;clear:both;">
+	    <%= f.submit "Update" %>
+	  </p>
+	<% end %>
+</fieldset>
