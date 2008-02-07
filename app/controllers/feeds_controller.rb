@@ -12,22 +12,9 @@ class FeedsController < ApplicationController
     def index
         @page_title = 'Feeds'
         @feeds = Feed.find(:all, :limit => 100) if @feeds.nil?
-        respond_to do |format|
-            format.html
-            format.xml  { render :xml => @feeds }
-        end
-    end
-
-    def show_feeds
-        @feeds = Feed.find(:all, :limit => 20) if @feeds.nil?
-        @tags = Feed.get_feed_tags()
-    end
-    
-    def filter
-        @feeds = Feed.get_feeds_tagged("alpha", params[:tag], {:limit => 100})
         render_index
     end
-
+   
     def search
         @feeds = Feed.search(params[:search_terms], {:limit => 100})
         render_index
@@ -56,18 +43,6 @@ class FeedsController < ApplicationController
             format.xml  { render :xml => @feed }
         end
     end
-
-    def new_too
-        @aggregation = Aggregation.find(params[:aggregation_id])
-        @service = Service.find(params[:service_id])
-        @feed = Feed.new
-        
-        respond_to do |format|
-            format.html
-            format.xml  { render :xml => @service }
-        end
-        
-    end
     
     # GET /feeds/1/edit
     def edit
@@ -77,15 +52,14 @@ class FeedsController < ApplicationController
     # POST /feeds
     # POST /feeds.xml
     def create
-        @aggregation = Aggregation.find(params[:aggregation_id])
-        @available_services = Service.available_services
-        @page_title = 'Add to ' + @aggregation.title
-        @service = Service.find(params[:service_id] || Aggregator::ServiceConstants::RSS)
+        @page_title = 'Added Feed'
         
-        local_params = params
-        local_params = params[:feed] if params[:feed]
         @feed = Feed.new
-        @feed.create_feeds(current_user, local_params, @service, @aggregation)
+        @feed.title = params[:title]
+        @feed.uri = params[:uri]
+        if @feed.save
+            flash[:notice] = 'Feed was successfully added.'
+        end
         
         respond_to do |format|
             format.html { render :action => "new_too" }
@@ -127,14 +101,8 @@ class FeedsController < ApplicationController
     end
 
     protected
-        
-    def get_aggregation
-        @aggregation = params[:aggregation_id] ? Aggregation.find(params[:aggregation_id]) : nil
-    end
-
+  
     def render_index
-        @feeds = @feeds.delete_if{|f| @aggregation.feeds.include?(f)} # remove items that are already part of the aggregation
-        @tags = Feed.get_feed_tags
         respond_to do |format|
             format.html { render(:template => 'feeds/index') }
             format.xml  { render :xml => @feeds }

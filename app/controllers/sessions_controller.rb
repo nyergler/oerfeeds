@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     def successful_login(new_user)
         logger.info "sucessful login for #{self.current_user.login}"
         
-        redirect_back_or_default(@event)
+        redirect_back_or_default('')
         
         flash[:notice] = "#{self.current_user.login} Logged in successfully"
         if new_user
