@@ -1,27 +1,20 @@
-<div id="user">
-  <h1><%= @user.login %></h1>
+<h1><%= @user.login %></h1>
 <!--
-  <% is_my_profile? @user do -%>
-      <div id="admin">
-        <%= link_to 'Edit My Profile', edit_user_path(@user) %>
-      </div>
-  <% end -%>
-  
-  <p>Name: <%=@user.firstname%> <%=@user.lastname%></p>
-  <p>
-  <%=h @user.blurb %>
-  <%= h @user.location %>
-  <%= h @user.website %>
-	</p>
+ <% is_my_profile? @user do -%>
+     <div id="admin">
+       <%= link_to 'Edit My Profile', edit_user_path(@user) %>
+     </div>
+ <% end -%>
+ 
+ <p>Name: <%=@user.firstname%> <%=@user.lastname%></p>
+ <p>
+ <%=h @user.blurb %>
+ <%= h @user.location %>
+ <%= h @user.website %>
+</p>
 -->	
-  <h2>My Feeds</h2>
-  <div class="part-content">
-    <% is_my_profile? @user do -%>
-        <div id="admin">
-          <%= link_to 'Add Data Feed', new_user_feed_path(@user), {:title => 'Add a feed to your profile'} %>
-        </div>
-    <% end -%>
-  </div>
-
-  
-</div>
+ <h2>My Feeds</h2>
+ <% is_my_profile? @user do -%>
+	  <p><%= link_to('Add Feed', new_user_feed_path(@user), {:title => "Add a new feed.", :target => "_self"}) %></p>
+<% end -%>
+<%= render(:partial => "shared/feeds", :collection => @user.feeds) %>

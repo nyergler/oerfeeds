@@ -7,8 +7,15 @@
 
 <ul>
   <li>  
-    <%= link_to 'Get the list of feeds', :controller => :feeds, :format => "opml" %> (<a href="http://www.opml.org/spec2">OPML Format</a>)</li>
-  <li><a href="">Login</a> to add or edit your feeds.</li>
+
+
+    <%= link_to 'Get the list of feeds', formatted_feeds_path(:opml) %> (<a href="http://www.opml.org/spec2">OPML Format</a>)</li>
+  <li><a href="/login">Login</a> to add or edit your feeds.</li>
 </ul>
 
+<% logged_in_view? do -%>
+  <p><%= link_to('Add Feed', new_user_feed_path(current_user), {:title => "Add a new feed.", :target => "_self"}) %></p>
+<% end -%>
 
+<h2>Most Recent OER Feeds</h2>
+<%= render(:partial => "shared/feeds", :collection => @feeds) %>

@@ -32,10 +32,10 @@ fieldset input{float:left;}
 #buttons{text-align:center; }
 #buttons img{margin-left:20px;margin-right:20px;}
 
-#user {width:725px;margin:auto;margin-top:30px;}
-#user h2{clear:both;}
-#user fieldset legend{font-size:100%;font-weight:bolder;color:#dba855;clear:both;}
-#user p{clear:both;}
+#content {width:725px;margin:auto;margin-top:30px;}
+#content h2{clear:both;}
+#content fieldset legend{font-size:100%;font-weight:bolder;color:#dba855;clear:both;}
+#content p{clear:both;}
 
 #footer{clear:both;float:left;margin-top:35px;height:35px;background-color:#dba855;text-align:center;width:100%;color:#f7eed4;font-size:9pt;padding-top:1px;}
 #footer a, a:visited {color:#f7eed4;, text-decoration: underline;}
