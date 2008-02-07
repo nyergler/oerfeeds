@@ -54,13 +54,13 @@ class FeedsController < ApplicationController
     # POST /feeds.xml
     def create
         @page_title = 'Added Feed'
-        
-        @feed = Feed.find_by_uri(params[:uri])
+        uri = params[:feed][:uri]
+        @feed = Feed.find_by_uri(uri)
         
         if @feed.nil?
             @feed = Feed.new
             @feed.title = params[:feed][:title]
-            @feed.uri = params[:feed][:uri]
+            @feed.uri = uri
             success = @feed.save
         else
             success = true
