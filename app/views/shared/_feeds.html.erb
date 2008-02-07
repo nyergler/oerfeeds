@@ -3,7 +3,9 @@
 	  <tr>
 	    <td><%= link_to h(feed.title), feed.uri, {:target => "_self"} %></td>
 	    <td><%= link_to h(feed.uri), feed.uri, {:target => "_self"} %></td>	 
-		  <td><%= link_to 'Remove', user_feed_path(@user, feed), :confirm => 'Are you sure you want to remove this feed?', :method => :delete %></td>
+		  <% can_view_or_is_owner? current_user, feed, 'admin' do -%>
+		    <td><%= link_to 'Remove', user_feed_path(@user, feed), :confirm => 'Are you sure you want to remove this feed?', :method => :delete %></td>
+	    <% end -%>
 	  </tr>
 	<% end -%>
 </table>

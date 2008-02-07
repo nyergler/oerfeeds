@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 19) do
+ActiveRecord::Schema.define(:version => 21) do
 
   create_table "aggregation_feeds", :force => true do |t|
     t.integer "aggregation_id"
@@ -96,6 +96,10 @@ ActiveRecord::Schema.define(:version => 19) do
 
   add_index "entry_images", ["entry_id"], :name => "index_entry_images_on_entry_id"
 
+  create_table "feed_types", :force => true do |t|
+    t.string "name", :null => false
+  end
+
   create_table "feeds", :force => true do |t|
     t.string   "uri",               :limit => 2083
     t.string   "display_uri",       :limit => 2083
@@ -116,10 +120,14 @@ ActiveRecord::Schema.define(:version => 19) do
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "feed_type_id"
+    t.integer  "user_id"
   end
 
+  add_index "feeds", ["feed_type_id"], :name => "index_feeds_on_feed_type_id"
   add_index "feeds", ["service_id"], :name => "index_feeds_on_service_id"
   add_index "feeds", ["uri"], :name => "index_feeds_on_uri", :unique => true
+  add_index "feeds", ["user_id"], :name => "index_feeds_on_user_id"
 
   create_table "micro_concerts", :force => true do |t|
     t.integer "micro_event_id"

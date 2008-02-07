@@ -21,14 +21,7 @@ module ApplicationHelper
             concat(content, block.binding)
         end
     end
-    
-    def can_view_or_is_user?(user, item_owner, roles, &block)
-        if logged_in? && (user.is_in_role?(roles) || item_owner.id == user.id)
-            content = capture(&block)
-            concat(content, block.binding)
-        end
-    end
-    
+        
     def is_edit_form?(&block)
         if defined?(@edit) && @edit
             content = capture(&block)
