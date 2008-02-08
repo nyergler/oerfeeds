@@ -30,7 +30,6 @@ end
 
 desc "create symlinks from rails dir into project"
 task :create_sym do
-	sudo "ln -nfs #{deploy_to}/shared/rails #{release_path}/vendor/rails"
 	sudo "chown -R mongrel:www  /var/www/oerfeeds"
 	sudo "chmod -R 775  /var/www/oerfeeds"
 end
