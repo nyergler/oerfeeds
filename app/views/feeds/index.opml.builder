@@ -15,12 +15,12 @@ xml.opml("version" => "2.0") do
 		 @feeds.each do |feed|
 		 xml.outline( :text => feed.title,
 		 	      :type => "include",
-			      :url => feed.url
+			      :url => feed.uri
 			      ) if feed.type == "opml"
 
 		 xml.outline( :text => feed.title,
 		 	      :type => feed.type,
-			      :xmlUrl => feed.url
+			      :xmlUrl => feed.uri
 			      ) unless feed.type == "opml"
 			      
 			      

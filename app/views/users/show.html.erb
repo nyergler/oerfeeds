@@ -17,4 +17,4 @@
  <% is_my_profile? @user do -%>
 	  <p><%= link_to('Add Feed', new_user_feed_path(@user), {:title => "Add a new feed.", :target => "_self"}) %></p>
 <% end -%>
-<%= render(:partial => "shared/feeds", :collection => @user.feeds) %>
+<%= render(:partial => "shared/feeds") %>

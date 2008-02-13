@@ -6,10 +6,7 @@
 </p>
 
 <ul>
-  <li>  
-
-
-    <%= link_to 'Get the list of feeds', formatted_feeds_path(:opml) %> (<a href="http://www.opml.org/spec2">OPML Format</a>)</li>
+  <li><%= link_to 'OPML list of feeds', formatted_feeds_path(:opml) %></li>
   <li><a href="/login">Login</a> to add or edit your feeds.</li>
 </ul>
 
@@ -18,4 +15,6 @@
 <% end -%>
 
 <h2>Most Recent OER Feeds</h2>
-<%= render(:partial => "shared/feeds", :collection => @feeds) %>
+<%= render(:partial => "shared/feeds") %>
+
+<p>(<a href="http://www.opml.org/spec2">OPML Format</a>)</p>
