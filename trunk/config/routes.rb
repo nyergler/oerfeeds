@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
 
     map.resources :feeds
     map.resources :sessions
-    map.resources :users #, :has_many => :feeds
+    map.resources :users, :has_many => :feeds
     
     map.open_id_complete 'session', :controller => 'sessions', :action => 'create', :requirements => { :method => :get }
 
