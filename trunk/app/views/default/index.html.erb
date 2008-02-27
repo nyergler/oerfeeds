@@ -7,8 +7,10 @@
 
 <ul>
   <li><%= link_to 'OPML list of feeds', formatted_feeds_path(:opml) %></li>
-  <li><a href="/login">Login</a> to add or edit your feeds.</li>
-</ul>
+  <% logged_out_view? do -%>
+    <li><a href="/login">Login</a> to add or edit your feeds.</li>
+  <% end -%>
+  </ul>
 
 <% logged_in_view? do -%>
   <p><%= link_to('Add Feed', new_user_feed_path(current_user), {:title => "Add a new feed.", :target => "_self"}) %></p>

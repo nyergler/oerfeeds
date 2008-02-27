@@ -36,6 +36,13 @@ module ApplicationHelper
         end
     end
     
+    def logged_out_view?(&block)
+        if !logged_in?
+            content = capture(&block)
+            concat(content, block.binding)
+        end
+    end
+    
     # Use to protect a method from unauthorized access
     def restrict_access(user, roles)
         redirect_to "/not_authorized" unless logged_in? && user.is_in_role?(roles)
