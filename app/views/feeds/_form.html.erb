@@ -8,5 +8,9 @@
       <td><label for="uri">Feed Url</label></td>
      <td><%= f.text_field :uri %></td>
     </tr>
+    <tr>
+      <td><label for="feed_type_id">Feed Type</label></td>
+     <td><%= form.select(:feed_type_id, %w{ Andy Bert Chas Dave Eric Fred }) %></td>
+    </tr>
 </table>
 
