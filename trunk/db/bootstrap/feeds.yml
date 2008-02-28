@@ -1,168 +1,13 @@
-chemistry_sciences_pathway_jce:
-  uri:  http://services.nsdl.org:8080/nsdloai/OAI?verb=ListRecords&metadataPrefix=nsdl_dc&set=369664
-  display_uri: http://jchemed.chem.wisc.edu/JCEDLib/index.html
-  title:  JCE Digital Library
-  description: 'JCE Digital Library (JCE DLib) collects and catalogues digital resources available on the WWW in the area of chemistry education.'
+nsdl:
+  uri:  http://services.nsdl.org:8080/nsdloai/OAI
+  display_uri: http://services.nsdl.org:8080/nsdloai/index.html
+  title:  National Science Digital Library
+  description: 'National Science Digital Library'
   created_at: 2007-06-18 16:34
   updated_at: 2007-06-18 16:34
   priority: 1
   harvest_interval: '168:00:00'
-  service_id: 13
-  
-computational_science_pathway_shodor:
-  uri:  http://services.nsdl.org:8080/nsdloai/OAI?verb=ListRecords&metadataPrefix=nsdl_dc&set=432568
-  display_uri: http://www.shodor.org/refdesk/
-  title:  The Shodor Education Foundation, Inc
-  description: 'The Computational Science Education Reference Desk, a Pathways project of the National Science Digital Library and funded by the National Science Foundation, aims to help students learn about computational science and to help teachers incorporate it into the classroom.'
-  created_at: 2007-06-18 16:34
-  updated_at: 2007-06-18 16:34
-  priority: 1  
-  harvest_interval: '168:00:00'
-  service_id: 13
-  
-engineering_pathway_mathforum:
-  uri:  http://services.nsdl.org:8080/nsdloai/OAI?verb=ListRecords&metadataPrefix=nsdl_dc&set=mathforum
-  display_uri: http://www.mathforum.org/
-  title:  Math Forum
-  description: 'The Math Forum is the comprehensive resource for math education on the Internet. Some features include a K-12 math expert help service, an extensive database of math sites, online resources for teaching and learning math, plus much more.'
-  created_at: 2007-06-18 16:34
-  updated_at: 2007-06-18 16:34
-  priority: 1
-  harvest_interval: '168:00:00'
-  service_id: 13
-  
-engineering_pathway_needs:
-  uri:  http://services.nsdl.org:8080/nsdloai/OAI?verb=ListRecords&metadataPrefix=nsdl_dc&set=needs
-  display_uri: http://www.needs.org/
-  title:  NEEDS - National Engineering Education Digital Library System
-  description: 'NEEDS - a digital library with links to online learning materials in engineering and related areas of science and math'
-  created_at: 2007-06-18 16:34
-  updated_at: 2007-06-18 16:34
-  priority: 1
-  harvest_interval: '168:00:00'
-  service_id: 13
-  
-engineering_pathway_teach_engineering:
-  uri:  http://services.nsdl.org:8080/nsdloai/OAI?verb=ListRecords&metadataPrefix=nsdl_dc&set=928276
-  display_uri: http://www.teachengineering.com/
-  title:  TeachEngineering Digital Collection 
-  description: "The TeachEngineering digital library provides teacher-tested, standards-based engineering content for K-12 teachers to use in science and math classrooms. Engineering lessons connect real-world experiences with curricular content already taught in K-12 classrooms. Mapped to educational content standards, TeachEngineering's comprehensive curricula are hands-on, inexpensive, and relevant to children's daily lives." 
-  created_at: 2007-06-18 16:34 
-  updated_at: 2007-06-18 16:34 
-  priority: 1 
-  harvest_interval: '168:00:00'
-  service_id: 13 
-  
-materials_science_pathway_matdl:
-  uri:  http://services.nsdl.org:8080/nsdloai/OAI?verb=ListRecords&metadataPrefix=nsdl_dc&set=433248
-  display_uri: http://matdl.org/ 
-  title:  'Materials Digital Library: MatDL.org' 
-  description: 'The NSDL MatDL Pathway aims to provide stewardship for content and services needed across the MS community and in particular for its targeted audience of materials undergraduate and graduate students, educators, and researchers.' 
-  created_at: 2007-06-18 16:34
-  updated_at: 2007-06-18 16:34
-  priority: 1      
-  harvest_interval: '168:00:00'
-  service_id: 13
-  
-mathematical_sciences_pathway_mathdl:
-  uri:  http://services.nsdl.org:8080/nsdloai/OAI?verb=ListRecords&metadataPrefix=nsdl_dc&set=MathDL
-  display_uri: http://mathdl.maa.org/
-  title:  Mathematical Sciences Digital Library 
-  description: 'MathDL is an online resource published by the Mathematical Association of America. The site provides online resources for both teachers and students of mathematics.' 
-  created_at: 2007-06-18 16:34
-  updated_at: 2007-06-18 16:34
-  priority: 1        
-  harvest_interval: '168:00:00'
-  service_id: 13
-  
-pathway_for_community_and_technical_colleges_internet_scout:
-  uri:  http://services.nsdl.org:8080/nsdloai/OAI?verb=ListRecords&metadataPrefix=nsdl_dc&set=internetscout
-  display_uri: http://scout.wisc.edu/ 
-  title:  Internet Scout Project 
-  description: 'Since 1994, the Internet Scout Project has focused on research and development projects that provide better tools and services for finding, filtering and delivering online information and metadata.' 
-  created_at: 2007-06-18 16:34
-  updated_at: 2007-06-18 16:34
-  priority: 1        
-  harvest_interval: '168:00:00'
-  service_id: 13
-  
-pathway_to_multimedia_resources_for_the_classroom_wgbh:
-  uri:  http://services.nsdl.org:8080/nsdloai/OAI?verb=ListRecords&metadataPrefix=nsdl_dc&set=316957
-  display_uri: http://www.teachersdomain.org/
-  title:  "Teacher's Domain" 
-  description: "Teachers' Domain is an online educational service with two related components &mdash; Collections and Courses &mdash; that help teachers enhance their students' learning experiences and advance their own teaching skills." 
-  created_at: 2007-06-18 16:34
-  updated_at: 2007-06-18 16:34
-  priority: 1        
-  harvest_interval: '168:00:00'
-  service_id: 13
-  
-physics_and_astronomy_pathway_compadre:
-  uri:  http://services.nsdl.org:8080/nsdloai/OAI?verb=ListRecords&metadataPrefix=nsdl_dc&set=439869
-  display_uri: http://www.compadre.org/
-  title:  comPADRE 
-  description: 'The comPADRE Pathway, a part of the National Science Digital Library, is a network of educational resource collections supporting teachers and students in Physics and Astronomy.'  
-  created_at: 2007-06-18 16:34
-  updated_at: 2007-06-18 16:34
-  priority: 1        
-  harvest_interval: '168:00:00'
-  service_id: 13
-  
-middle_school_pathway_enc_online:
-  uri:  http://services.nsdl.org:8080/nsdloai/OAI?verb=ListRecords&metadataPrefix=nsdl_dc&set=enc
-  display_uri: http://www.goenc.com/
-  title: ENC Online 
-  description: 'K-12 math and science teacher resources for teaching and professional development'  
-  created_at: 2007-06-18 16:34
-  updated_at: 2007-06-18 16:34
-  priority: 1        
-  harvest_interval: '168:00:00'
-  service_id: 13
-  
-middle_school_pathway_learning_matrix:
-  uri:  http://services.nsdl.org:8080/nsdloai/OAI?verb=ListRecords&metadataPrefix=nsdl_dc&set=LearningMatrix
-  display_uri: '' 
-  title:  Learning Matrix (LM)
-  description: ''  
-  created_at: 2007-06-18 16:34
-  updated_at: 2007-06-18 16:34
-  priority: 1        
-  harvest_interval: '168:00:00'
-  service_id: 13
-  
-middle_school_pathway_icon:
-  uri:  http://services.nsdl.org:8080/nsdloai/OAI?verb=ListRecords&metadataPrefix=nsdl_dc&set=336955
-  display_uri: ''
-  title: Innovation Curriculum Online Network (ICON)
-  description: ''  
-  created_at: 2007-06-18 16:34
-  updated_at: 2007-06-18 16:34
-  priority: 1        
-  harvest_interval: '168:00:00'
-  service_id: 13
-  
-middle_school_pathway_gender_science:
-  uri:  http://services.nsdl.org:8080/nsdloai/OAI?verb=ListRecords&metadataPrefix=nsdl_dc&set=genderscience
-  display_uri: http://eecgsdl.edc.org/ 
-  title: Gender and Science Digital Library (GSDL)
-  description: 'The Gender & Science Digital Library (GSDL) aims to provide high-quality digital resources to 1) help educators promote interest and engagement with STEM (science, technology, engineering and mathematics) education by learners of all ages, particularly females, 2) encourage learners to pursue science education and future careers in science, 3) provide an inter-disciplinary examination of the role of gender in the creation, teaching and learning of science, and 4) build community among all interested users for the purposes of inquiry, information exchange, best practices development and mentoring.'  
-  created_at: 2007-06-18 16:34
-  updated_at: 2007-06-18 16:34
-  priority: 1        
-  harvest_interval: '168:00:00'
-  service_id: 13
-  
-biological_sciences_pathway_microbial_life:
-  uri:  http://services.nsdl.org:8080/nsdloai/OAI?verb=ListRecords&metadataPrefix=nsdl_dc&set=1030947
-  display_uri: http://serc.carleton.edu/microbelife/
-  title:  Microbial Life - Educational Resources
-  description: 'Teaching and learning about the diversity, ecology and evolution of the microbial world; discover the connections between microbial life, the history of the earth and our dependence on ...'
-  created_at: 2007-06-18 16:34
-  updated_at: 2007-06-18 16:34
-  priority: 1
-  harvest_interval: '168:00:00'
-  service_id: 13
-  
+  service_id: 13  
 mit:
   title: MIT OpenCourseWare
   short_title: 
@@ -214,7 +59,7 @@ learningspace:
   created_at: 2007-04-23 10:00:38
   updated_at: 2007-04-23 10:00:38
 oer_commons:
-  uri:  http://cnx.org/content/OAI?verb=ListRecords&metadataPrefix=oai_dc&from=1970-01-01T00:00:00Z
+  uri:  http://cnx.org/content/OAI
   display_uri: http://cnx.org
   title:  Connexions
   description: A place to view and share educational material made of small knowledge chunks called modules that can be organized as courses, books, reports, etc.
